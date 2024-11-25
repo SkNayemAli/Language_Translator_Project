@@ -1,0 +1,472 @@
+/* Root Variables for color and theme settings */
+:root {
+  --primary-color: #356aff; /* Main accent color */
+  --bg-color: #f5f5f5; /* Background color for light mode */
+  --light-bg-color: #fff; /* Lighter background color */
+  --text-color: #111116; /* Default text color */
+  --light-text-color: #cdccd1; /* Lighter text color */
+  --primary-text-color: #fff; /* Text color for primary elements */
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 30px;
+  background: #f1f1f1; /* Light background for scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background: var(--primary-color); /* Use primary color for scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-color); /* Change thumb color on hover */
+}
+
+/* Centered Egg-Shaped Box for Heading with 3D Effect */
+/* Centered Egg-Shaped Box for Heading with 3D Effect and Transition for Dark Mode */
+.center-box {
+  width: 20%;
+  text-align: center;
+  position: fixed;
+  top: 10px; /* Position it at the top of the screen */
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  background: linear-gradient(to bottom, #ebf1f1, #d1dadb); /* Gradient for 3D depth */
+  padding: 20px 30px; /* Increase padding for a more rounded look */
+  border-radius: 50% 50% 45% 45%; /* Rounded corners for egg shape */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), /* Deeper shadow for depth */
+              inset 0 4px 8px rgba(255, 255, 255, 0.6); /* Light inner shadow for 3D effect */
+  z-index: 1000; /* Ensure it's above other content */
+  border: 2px solid #e0e0e0; /* Optional: Border to define the shape better */
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  perspective: 1000px; /* Perspective for a 3D look */
+  transition: background 0.5s ease, box-shadow 0.5s ease, color 0.5s ease; /* Smooth transition for dark mode */
+}
+
+/* Dark Mode Styling */
+body.dark .center-box {
+  background: linear-gradient(to bottom, #333, #555); /* Dark gradient for 3D depth */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), /* Darker shadow for depth in dark mode */
+              inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker inner shadow for 3D effect */
+  border: 2px solid #444; /* Darker border for contrast in dark mode */
+}
+
+/* Heading Style */
+.center-box h1 {
+  font-size: 1.5rem;
+  color: #333;
+  font-family: 'Poppins', sans-serif; /* Modern font style */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Light shadow for 3D text effect */
+  transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth text transition */
+}
+
+/* Dark Mode Heading Style */
+body.dark .center-box h1 {
+  color: #ebf1f1; /* Lighter text color in dark mode */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2); /* Light shadow for better contrast in dark mode */
+}
+
+/*center box end*/
+/* General Box Styling for Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  background-color: var(--bg-color); /* Set default background color */
+}
+
+body.dark {
+  --bg-color: #111116; /* Dark background for dark mode */
+  --light-bg-color: #1c1b20; /* Darker light background for dark mode */
+  --text-color: #fff; /* White text color for dark mode */
+  --light-text-color: #58575c; /* Lighter text color for dark mode */
+}
+
+/* Container for Main Content */
+.container {
+  position: relative;
+  width: 1200px; /* Set the width of the container */
+  padding: 0 20px; /* Padding inside the container */
+  display: flex; /* Use flexbox to layout items */
+  gap: 10px; /* Gap between cards */
+}
+
+/* Styling for Cards in the Container */
+.container .card {
+  flex: 1; /* Each card takes equal width */
+  padding: 30px;
+  border-radius: 20px;
+  background-color: var(--light-bg-color); /* Light background for cards */
+}
+
+/* Styling for 'From' and 'To' sections inside cards */
+.container .card .from,
+.container .card .to {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.container .card .from {
+  margin-right: 20px;
+}
+
+.container .card .to {
+  margin-left: 20px;
+}
+
+.container .card .heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--light-text-color); /* Light text color */
+  white-space: nowrap;
+}
+
+/* Dropdown Styling */
+.dropdown-container {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.dropdown-container .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 30px;
+  background-color: var(--bg-color); /* Background color for dropdown */
+  cursor: pointer;
+  transition: all 0.3s; /* Smooth transition for hover and active states */
+}
+
+.dropdown-container .dropdown-toggle span {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.dropdown-container .dropdown-toggle ion-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-container.active .dropdown-toggle {
+  border-radius: 20px 20px 0 0; /* Rounded corners when active */
+}
+
+.dropdown-container.active .dropdown-toggle ion-icon:last-child {
+  transform: rotate(180deg); /* Rotate icon when dropdown is active */
+}
+
+.dropdown-container .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  overflow: auto; /* Enable scrolling */
+  display: none;
+  padding: 20px;
+  z-index: 1;
+  list-style: none;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  transition: all 1s;
+  border-radius: 0 0 20px 20px;
+}
+
+.dropdown-container .dropdown-menu::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.dropdown-container.active .dropdown-menu {
+  display: flex; /* Show the menu when active */
+}
+
+.dropdown-container .dropdown-menu li {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--light-bg-color); /* Border between items */
+  transition: all 0.3s ease;
+}
+
+.dropdown-container .dropdown-menu li:hover {
+  background-color: var(--light-bg-color); /* Change background on hover */
+}
+
+.dropdown-container .dropdown-menu li.active {
+  color: var(--primary-text-color); /* Active state text color */
+  background-color: var(--primary-color); /* Active state background */
+}
+
+/* Textarea Styling */
+.container .text-area {
+  position: relative;
+}
+
+.container textarea {
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: transparent; /* Transparent background */
+  resize: none;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+.container .text-area .chars {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: var(--light-text-color); /* Light color for char counter */
+}
+
+/* Swap Button Styling */
+.container .center {
+  position: relative;
+}
+
+.swap-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%); /* Center swap button */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid var(--bg-color);
+  transition: all 0.3s ease;
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+}
+
+.swap-position ion-icon {
+  font-size: 25px;
+}
+
+.swap-position:hover {
+  transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Card Bottom Section for file upload and download */
+.card-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 2px solid var(--bg-color);
+}
+
+.card-bottom p {
+  margin-bottom: 20px;
+}
+
+.card-bottom label {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: var(--bg-color);
+}
+
+.card-bottom label:hover {
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+}
+
+.card-bottom span {
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.card-bottom ion-icon {
+  font-size: 20px;
+}
+
+.card-bottom button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  cursor: pointer;
+  background-color: var(--bg-color);
+}
+
+.card-bottom button:hover {
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+}
+
+/* Dark Mode Toggle */
+.mode {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-track {
+  width: 24px;
+  height: 50px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3px 0;
+  justify-content: space-between;
+  border: 1px solid var(--light-text-color);
+  background-color: var(--light-bg-color);
+  transition: all 0.2s ease;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.5s;
+}
+
+.toggle input:checked ~ .toggle-thumb {
+  transform: translateY(25px);
+}
+
+.toggle img {
+  width: 20px;
+  height: 20px;
+}
+/*voic start*/
+.voice-assistant {
+  position: fixed; /* Fix the position */
+  top: 10cm; /* Place it 2cm from the top of the screen */
+  left: 15%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for proper centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #afb3dd;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
+.voice-assistant ion-icon {
+  font-size: 24px;
+  color: #555;
+}
+
+.voice-assistant:hover {
+  background-color: #e0e0e0;
+}
+/*#mic-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  top: 300px;
+  
+}*/
+
+#mic-btn.listening {
+  background-color: #dc3545; /* Change color when listening */
+}
+
+
+/*voic end*/
+
+
+/* Media Queries for Mobile Responsive Design */
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column; /* Stack cards vertically on mobile */
+  }
+
+  .container .card {
+    width: 100%;
+  }
+
+  .container .card .from {
+    margin-right: 0;
+  }
+
+  .container .card .to {
+    margin-left: 0;
+  }
+
+  .container .card .from,
+  .container .card .to {
+    flex-direction: column;
+  }
+
+  .swap-position {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center swap button */
+  }
+
+  .swap-position:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Hover effect */
+  }
+
+  .swap-position ion-icon {
+    transform: rotate(90deg); /* Rotate the icon for mobile */
+  }
+};
